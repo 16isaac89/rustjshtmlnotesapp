@@ -1,0 +1,15 @@
+[package]
+name = "modulesextended"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum =  "0.7.9"
+sqlx = { version = "0.8.2", features = ["runtime-tokio", "mysql"] }
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hyper = "1.5.1"
+axum-server = "0.7.1"
+uuid = { version = "1.7.0", features = ["v4"] }
+bcrypt = "0.16"
