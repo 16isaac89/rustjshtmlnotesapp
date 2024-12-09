@@ -6,11 +6,12 @@ use std::net::SocketAddr;
 use std::sync::Arc;
 use uuid::Uuid; 
  // Import Server from hyper
+ use tera::{Tera, Context};
+
+
 
 
  fn main() {
-    
-    #[warn(unused_must_use)]
  connect_db();
 
 }
@@ -34,6 +35,9 @@ async fn connect_db() -> Result<(), sqlx::Error> {
 
     // Clone the pool for sharing across handlers
     let shared_pool = Arc::new(pool);
+     // Load Tera templates
+     let tera = Arc::new(Tera::new("templates/**/*.html").unwrap());
+
 
     // Build the Axum app with routes
     let router = Router::new()

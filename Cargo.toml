@@ -13,3 +13,4 @@ hyper = "1.5.1"
 axum-server = "0.7.1"
 uuid = { version = "1.7.0", features = ["v4"] }
 bcrypt = "0.16"
+tera = "1.12"

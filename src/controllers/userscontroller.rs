@@ -1,10 +1,11 @@
 use crate::models;
 use sqlx::mysql::MySqlPool;
 use serde::Serialize;
-use axum::{extract::{State, Path},Json,http::StatusCode,Form};
+use axum::{extract::{Path, State}, http::StatusCode, response::{Html, Form, Json}};
 use std::sync::Arc;
 use uuid::Uuid;
 use bcrypt::{hash, DEFAULT_COST};
+use tera::{Tera, Context};
 
 
 impl models::user::User {
@@ -93,3 +94,10 @@ pub async fn get_user_by_id(
     }
 
 }
+
+// pub fn render_userregister_form(State(tera): State<Arc<Tera>>,)->Html<String>{
+//     let mut context = Context::new();
+//     // Add any dynamic data you want here (e.g., user info)
+//     let rendered = tera.render("register.html", &context).unwrap();
+//     Html(rendered)
+// }
