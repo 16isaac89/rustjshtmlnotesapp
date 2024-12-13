@@ -44,6 +44,8 @@ async fn connect_db() -> Result<(), sqlx::Error> {
         .route("/get/users", get(controllers::userscontroller::get_users))
         .route("/post/user", post(controllers::userscontroller::save_user))
         .route("/get/user/:id", get(controllers::userscontroller::get_user_by_id)) 
+        .route("/post/book", post(controllers::bookscontroller::save_book))
+        .route("/get/books", get(controllers::bookscontroller::get_books))
         .with_state(shared_pool);
 
     // Start the server
